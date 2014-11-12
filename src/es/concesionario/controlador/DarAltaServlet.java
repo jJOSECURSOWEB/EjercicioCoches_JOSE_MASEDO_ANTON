@@ -1,9 +1,14 @@
 package es.concesionario.controlador;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +33,7 @@ public class DarAltaServlet extends HttpServlet {
      */
     public DarAltaServlet() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
 	/**
@@ -53,10 +58,11 @@ public class DarAltaServlet extends HttpServlet {
 	      
 	     //.. consultar elcoche...
 	      Coche c=negocio.consultarUno(id);	      
-	      //meter el pais en el request... (setAttribute)
+	      //meter el coche en el request... (setAttribute)
 	      request.setAttribute("coches",c);
 	      //redirigir a la vistaIndividual
-	      RequestDispatcher rd;
+	      RequestDispatcher rd;	     
+	      
 	      rd= request.getRequestDispatcher("vistaIndividual.jsp");
 	      rd.forward(request, response);
 		}
@@ -68,4 +74,7 @@ public class DarAltaServlet extends HttpServlet {
 		
 	}
 
-}
+	
+	}
+
+
